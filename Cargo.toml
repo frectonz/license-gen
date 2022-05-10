@@ -1,0 +1,11 @@
+[package]
+name = "license-gen"
+version = "0.1.0"
+edition = "2021"
+authors = ["Fraol Lemecha"]
+
+[dependencies]
+anyhow = "1.0"
+inquire = "0.2.1"
+serde_json = "1.0"
+chrono = "0.4"
