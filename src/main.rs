@@ -1,12 +1,12 @@
 use std::{fs::File, io::Write};
 
-use anyhow::{anyhow, Result};
+use anyhow::{Result};
+use inquire::{Confirm};
 use chrono::{Datelike, Utc};
-use inquire::{Confirm, Select};
 
 use license_gen::{
+    get_license_content,
     get_author_email, get_author_name,
-    licenses::{ISC, MIT},
 };
 
 fn main() -> Result<()> {
@@ -40,14 +40,3 @@ fn main() -> Result<()> {
     Ok(())
 }
 
-fn get_license_content() -> Result<String> {
-    let licenses = vec!["MIT", "ISC"];
-    let license = Select::new("Choose your license?", licenses).prompt()?;
-    let content = match license {
-        "MIT" => MIT.to_owned(),
-        "ISC" => ISC.to_owned(),
-        _ => return Err(anyhow!("Unknown license")),
-    };
-
-    Ok(content)
-}
