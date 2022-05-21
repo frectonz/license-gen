@@ -3,6 +3,13 @@ name = "license-gen"
 version = "0.1.0"
 edition = "2021"
 authors = ["Fraol Lemecha"]
+license = "MIT"
+license-file = "LICENSE"
+homepage = "https://github.com/fraol0912/license-gen"
+description = "A cli tool that asks you a bunch of questions and generates a license file"
+documentation = "README.md"
+keywords = ["license", "generator", "cli"]
+categories = ["license", "cli"]
 
 [dependencies]
 anyhow = "1.0"
