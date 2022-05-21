@@ -7,8 +7,8 @@ license = "MIT"
 homepage = "https://github.com/fraol0912/license-gen"
 documentation = "https://github.com/fraol0912/license-gen"
 description = "A cli tool that asks you a bunch of questions and generates a license file"
-keywords = ["development-tools", "command-line-utilities"]
-categories = ["license", "cli"]
+categories = ["development-tools", "command-line-utilities"]
+keywords = ["license", "cli"]
 
 [dependencies]
 anyhow = "1.0"
