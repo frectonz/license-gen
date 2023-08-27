@@ -1,13 +1,10 @@
 use std::{fs::File, io::Write};
 
-use anyhow::{Result};
-use inquire::{Confirm};
+use anyhow::Result;
 use chrono::{Datelike, Utc};
+use inquire::Confirm;
 
-use license_gen::{
-    get_license_content,
-    get_author_email, get_author_name,
-};
+use license_gen::{get_author_email, get_author_name, get_license_content};
 
 fn main() -> Result<()> {
     let author_name = get_author_name()?;
@@ -39,4 +36,3 @@ fn main() -> Result<()> {
     println!("Successfully generated license file 🎉");
     Ok(())
 }
-

@@ -2,6 +2,12 @@
 
 A license generator made with rust.
 
+## Run it with Nix
+
+```bash
+nix run github:frectonz/license-gen
+```
+
 ## Install
 
 ```bash

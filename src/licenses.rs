@@ -1,8 +1,8 @@
-use anyhow::{Result, anyhow};
-use inquire::{Select};
+use anyhow::{anyhow, Result};
+use inquire::Select;
 
-const MIT: &str = include_str!("../licenses/MIT");
-const ISC: &str = include_str!("../licenses/ISC");
+const MIT: &str = include_str!("licenses/MIT.txt");
+const ISC: &str = include_str!("licenses/ISC.txt");
 
 pub fn get_license_content() -> Result<String> {
     let licenses = vec!["MIT", "ISC"];
