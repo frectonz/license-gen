@@ -1,4 +1,4 @@
-use std::{fs, process::Command};
+use std::{collections::HashSet, fs, process::Command};
 
 use anyhow::Result;
 use inquire::{Select, Text};
@@ -35,6 +35,7 @@ fn get_author_name_from_env() -> Result<String> {
     return Ok(author_name);
 }
 
+const NAME_PROMPT: &str = "No, I will input my name.";
 pub fn get_author_name() -> Result<String> {
     let author_names = vec![
         get_author_name_from_env().ok(),
@@ -46,9 +47,10 @@ pub fn get_author_name() -> Result<String> {
         .into_iter()
         .filter(|x| x.is_some())
         .map(|x| x.unwrap())
+        .collect::<HashSet<_>>()
+        .into_iter()
         .collect::<Vec<_>>();
 
-    const NAME_PROMPT: &str = "No, I will input my name.";
     author_names.push(NAME_PROMPT.into());
 
     let mut name = Select::new("Choose yor name?", author_names).prompt()?;
