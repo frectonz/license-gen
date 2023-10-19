@@ -14,7 +14,7 @@ fn get_author_name_from_git() -> Result<String> {
     let author_name = String::from_utf8(command.stdout)?;
     let author_name = author_name.trim();
 
-    return Ok(author_name.into());
+    Ok(author_name.into())
 }
 
 fn get_author_name_from_package_json() -> Result<String> {
@@ -26,13 +26,13 @@ fn get_author_name_from_package_json() -> Result<String> {
         .or(value["author"]["name"].as_str())
         .ok_or_else(|| anyhow::anyhow!("author name not found"))?;
 
-    return Ok(author_name.into());
+    Ok(author_name.into())
 }
 
 fn get_author_name_from_env() -> Result<String> {
     let author_name = std::env::var("USER")?;
 
-    return Ok(author_name);
+    Ok(author_name)
 }
 
 const NAME_PROMPT: &str = "No, I will input my name.";
@@ -45,8 +45,7 @@ pub fn get_author_name() -> Result<String> {
 
     let mut author_names = author_names
         .into_iter()
-        .filter(|x| x.is_some())
-        .map(|x| x.unwrap())
+        .flatten()
         .collect::<HashSet<_>>()
         .into_iter()
         .collect::<Vec<_>>();
