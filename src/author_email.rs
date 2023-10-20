@@ -34,10 +34,7 @@ pub fn get_author_email() -> Result<String> {
         get_author_email_from_git().ok(),
     ];
 
-    let mut author_emails = author_emails
-        .into_iter()
-        .flatten()
-        .collect::<Vec<_>>();
+    let mut author_emails = author_emails.into_iter().flatten().collect::<Vec<_>>();
 
     const EMAIL_PROMPT: &str = "No, I will input my email.";
     author_emails.push(EMAIL_PROMPT.into());
