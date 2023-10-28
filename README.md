@@ -20,6 +20,16 @@ nix run github:frectonz/license-gen
 cargo install license-gen
 ```
 
+## Supported licenses
+
+- Apache-2.0
+- BSD-1-Clause
+- BSD-2-Clause
+- BSD-3-Clause
+- ISC
+- MIT
+- UNLICENSE
+
 ## Demo
 
 [![asciicast](https://asciinema.org/a/496158.svg)](https://asciinema.org/a/496158)
