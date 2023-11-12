@@ -29,6 +29,7 @@ cargo install license-gen
 - ISC
 - MIT
 - UNLICENSE
+- WTFPL
 
 ## Demo
 

@@ -8,6 +8,7 @@ const BSD_3_CLAUSE: &str = include_str!("licenses/BSD-3-Clause.txt");
 const BSD_2_CLAUSE: &str = include_str!("licenses/BSD-2-Clause.txt");
 const BSD_1_CLAUSE: &str = include_str!("licenses/BSD-1-Clause.txt");
 const UNLICENSE: &str = include_str!("licenses/UNLICENSE.txt");
+const WTFPL: &str = include_str!("licenses/WTFPL.txt");
 
 pub fn get_license_content() -> Result<String> {
     let licenses = vec![
@@ -18,6 +19,7 @@ pub fn get_license_content() -> Result<String> {
         "BSD 2-Clause",
         "BSD 1-Clause",
         "Unlicense",
+        "WTFPL",
     ];
     let license = Select::new("Choose your license?", licenses).prompt()?;
     let content = match license {
@@ -28,6 +30,7 @@ pub fn get_license_content() -> Result<String> {
         "BSD 2-Clause" => BSD_2_CLAUSE.to_owned(),
         "BSD 1-Clause" => BSD_1_CLAUSE.to_owned(),
         "Unlicense" => UNLICENSE.to_owned(),
+        "WTFPL" => WTFPL.to_owned(),
         _ => return Err(anyhow!("Unknown license")),
     };
 
